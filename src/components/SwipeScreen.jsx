@@ -127,20 +127,17 @@ function SwipeScreen({ onComplete }) {
       }
 
   return (
-    <div className="screen swipe-screen">
-      {/* Progress bar */}
-      <div className="swipe-progress" aria-label={isTiebreakerMode ? "Tiebreaker mode" : `${swipeCount} of ${TOTAL_SWIPES} swipes`}>
-        {isTiebreakerMode ? (
-          <div className="tiebreaker-banner">Too close to call — keep swiping</div>
-        ) : (
-          Array.from({ length: TOTAL_SWIPES }).map((_, i) => (
-            <div
-              key={i}
-              className={`swipe-progress-dot ${i < swipeCount ? 'done' : ''} ${i === swipeCount ? 'active' : ''}`}
-            />
-          ))
-        )}
-      </div>
+    <div
+      className="screen swipe-screen"
+      style={{
+        '--drag-offset': dragOffset,
+        '--drag-ratio': Math.min(Math.abs(dragOffset) / 80, 1),
+      }}
+    >
+      {/* Tiebreaker banner */}
+      {isTiebreakerMode && (
+        <div className="tiebreaker-banner">Too close to call — keep swiping</div>
+      )}
 
       {/* Card stack */}
       <div className="card-stack">

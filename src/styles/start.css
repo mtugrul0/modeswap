@@ -132,12 +132,31 @@
   position: relative;
   animation: fade-in 0.6s 0.4s both;
   margin: var(--space-4) 0;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.start-vibes-marquee .vibe-badge {
+  font-size: 0.65rem;
+  padding: 2px 10px;
 }
 
 .start-vibes-track {
   display: flex;
   width: max-content;
-  animation: marquee 12s linear infinite;
+  animation: marquee 20s linear infinite;
   will-change: transform;
 }
 
