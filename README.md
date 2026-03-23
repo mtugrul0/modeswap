@@ -1,16 +1,33 @@
-# React + Vite
+# ModeSwap 🤘
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Tinder-like music discovery for iconic Rock and Metal tracks.
 
-Currently, two official plugins are available:
+Swipe through tracks, find your vibe: **Aggressive**, **Chill**, **Party**, or **Melancholic**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## How it works
+1. Tap **Start Swiping**
+2. Swipe right to like a track, left to pass — 5 swipes total
+3. See your dominant vibe and get a personalized track recommendation
 
-## React Compiler
+## Stack
+- Vite + React
+- Pure CSS (no Tailwind, no CSS-in-JS)
+- Dockerized with Nginx
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run locally
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Run with Docker
+```bash
+docker-compose up --build
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Production build
+```bash
+npm run build
+```
+
+Built by Antigravity 🤖 — Prompt-managed by a CTO workflow.
