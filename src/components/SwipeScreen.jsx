@@ -21,6 +21,7 @@ function SwipeScreen({ onComplete }) {
   const [isPlaying,     setIsPlaying]      = useState(false)
   const [showHint,      setShowHint]       = useState(true)
   const [isTiebreakerMode, setIsTiebreakerMode] = useState(false)
+  const [colorFeedback, setColorFeedback] = useState(0) // -1 for pass, 1 for like, 0 for none
   const audioRef = useRef(null)
 
   const currentTrack = tracks[currentIndex]
@@ -126,12 +127,15 @@ function SwipeScreen({ onComplete }) {
         transition: isDragging ? 'none' : 'transform 0.3s var(--transition-slow)',
       }
 
+  const activeDragOffset = dragOffset !== 0 ? dragOffset : colorFeedback * 80
+  const activeDragRatio = Math.min(Math.abs(activeDragOffset) / 80, 1)
+
   return (
     <div
       className="screen swipe-screen"
       style={{
-        '--drag-offset': dragOffset,
-        '--drag-ratio': Math.min(Math.abs(dragOffset) / 80, 1),
+        '--drag-offset': activeDragOffset,
+        '--drag-ratio': activeDragRatio,
       }}
     >
       {/* Tiebreaker banner */}
@@ -237,7 +241,11 @@ function SwipeScreen({ onComplete }) {
       <div className="swipe-actions">
         <button
           className="action-btn action-btn--pass"
-          onClick={() => triggerSwipe('left')}
+          onClick={() => {
+            setColorFeedback(-1)
+            setTimeout(() => setColorFeedback(0), 400)
+            triggerSwipe('left')
+          }}
           disabled={isAnimating}
           aria-label="Pass this track"
         >
@@ -245,7 +253,11 @@ function SwipeScreen({ onComplete }) {
         </button>
         <button
           className="action-btn action-btn--like"
-          onClick={() => triggerSwipe('right')}
+          onClick={() => {
+            setColorFeedback(1)
+            setTimeout(() => setColorFeedback(0), 400)
+            triggerSwipe('right')
+          }}
           disabled={isAnimating}
           aria-label="Like this track"
         >
