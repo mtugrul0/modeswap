@@ -147,8 +147,6 @@ function SwipeScreen({ onComplete }) {
   const activeDragOffset = dragOffset !== 0 ? dragOffset : colorFeedback * 80
   const activeDragRatio = Math.min(Math.abs(activeDragOffset) / 80, 1)
 
-  const isTouchDevice = () => window.matchMedia('(hover: none)').matches
-
   return (
     <div
       className="screen swipe-screen"
@@ -286,8 +284,7 @@ function SwipeScreen({ onComplete }) {
       </div>
 
       <p className="swipe-hint">Swipe right to like · left to pass</p>
-      
-      {!isTouchDevice() && (
+      {!window.matchMedia('(hover: none)').matches && (
         <p className="keyboard-hint">← → arrow keys to swipe</p>
       )}
     </div>
