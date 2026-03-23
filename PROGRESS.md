@@ -14,10 +14,10 @@
 - [x] Data verified and tested
 
 ## Phase 2: Global Styles & Design System
-- [ ] CSS custom properties (colors, fonts, spacing) defined in `global.css`
-- [ ] Google Fonts imported
-- [ ] Base reset and typography applied
-- [ ] Dark mode atmosphere established
+- [x] CSS custom properties (colors, fonts, spacing) defined in `global.css`
+- [x] Google Fonts imported
+- [x] Base reset and typography applied
+- [x] Dark mode atmosphere established
 
 ## Phase 3: Start Screen
 - [ ] `StartScreen.jsx` component built
