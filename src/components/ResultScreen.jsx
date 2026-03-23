@@ -121,6 +121,7 @@ function ResultScreen({ vibeScores, onRestart }) {
                 src={recommendation.coverUrl}
                 alt={`${recommendation.title} cover`}
                 className="result-track-cover"
+                loading="lazy"
               />
               <div className="result-track-info">
                 <p className="result-track-title">{recommendation.title}</p>

@@ -112,6 +112,7 @@ function SwipeScreen({ onComplete }) {
               src={tracks[currentIndex + 1].coverUrl}
               alt=""
               className="card-cover"
+              loading="lazy"
             />
           </div>
         )}
@@ -147,6 +148,7 @@ function SwipeScreen({ onComplete }) {
             alt={`${currentTrack.title} cover art`}
             className="card-cover"
             draggable="false"
+            loading="lazy"
           />
 
           {/* Card info */}

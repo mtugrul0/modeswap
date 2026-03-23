@@ -69,6 +69,7 @@
   z-index: 2;
   cursor: grab;
   will-change: transform;
+  touch-action: pan-y;
 }
 
 .music-card--active:active {
