@@ -1,5 +1,6 @@
 // src/components/ResultScreen.jsx
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import html2canvas from 'html2canvas'
 import { getRecommendationByVibe } from '../services/trackService'
 import { calculateWinner } from '../utils/calculateWinner'
 import '../styles/result.css'
@@ -15,6 +16,8 @@ function ResultScreen({ vibeScores, onRestart }) {
   const [resolvedVibe, setResolvedVibe] = useState(null)
   const [phase,        setPhase]        = useState('calculating') // 'calculating' | 'result'
   const [copied,       setCopied]       = useState(false)
+  const [isCapturing,  setIsCapturing]  = useState(false)
+  const cardRef = useRef(null)
 
   useEffect(() => {
     // Small delay for dramatic effect
@@ -76,29 +79,67 @@ function ResultScreen({ vibeScores, onRestart }) {
 
     const text = `🤘 My ModeSwap result: ${resolvedVibe.toUpperCase()}\n${emoji} ${description}.\nRecommended track: ${track}\n\nFind your mode → modeswap.app`
 
-    // Use Web Share API on mobile if available
-    if (navigator.share) {
-      try {
-        await navigator.share({ text })
-      } catch (e) {
-        // User cancelled share — do nothing
-      }
-      return
-    }
+    setIsCapturing(true)
 
-    // Fallback: copy to clipboard
     try {
-      await navigator.clipboard.writeText(text)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (e) {
-      console.error('Copy failed', e)
+      // Wait for the UI to re-render with capture-mode styles
+      await new Promise(resolve => setTimeout(resolve, 100))
+
+      const bgColor = document.documentElement.getAttribute('data-theme') === 'light'
+        ? '#f2f1eb'
+        : '#0d0d0f'
+
+      const canvas = await html2canvas(cardRef.current, {
+        useCORS: true,
+        scale: 2,
+        backgroundColor: bgColor,
+      })
+
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'))
+      const file = new File([blob], `modeswap-${resolvedVibe}.png`, { type: 'image/png' })
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            text,
+            files: [file],
+          })
+        } catch (e) {
+          // User cancelled share — do nothing
+        }
+      } else {
+        // Fallback: download image and copy text to clipboard
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = `modeswap-${resolvedVibe}.png`
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+        URL.revokeObjectURL(url)
+
+        try {
+          await navigator.clipboard.writeText(text)
+          setCopied(true)
+          setTimeout(() => setCopied(false), 2000)
+        } catch (e) {
+          console.error('Copy failed', e)
+        }
+      }
+    } catch (err) {
+      console.error('Share capture failed', err)
+    } finally {
+      setIsCapturing(false)
     }
   }
 
   return (
     <div className="screen result-screen">
-      <div className="result-content" style={{ '--result-vibe-color': `var(--color-vibe-${resolvedVibe})` }}>
+      <div
+        ref={cardRef}
+        className={`result-content${isCapturing ? ' capture-mode' : ''}`}
+        style={{ '--result-vibe-color': `var(--color-vibe-${resolvedVibe})` }}
+      >
 
         {/* Ambient glow */}
         <div className="result-glow" aria-hidden="true" />
@@ -128,6 +169,7 @@ function ResultScreen({ vibeScores, onRestart }) {
                 src={recommendation.coverUrl}
                 alt={`${recommendation.title} cover`}
                 className="result-track-cover"
+                crossOrigin="anonymous"
                 loading="lazy"
               />
               <div className="result-track-info">
@@ -141,19 +183,32 @@ function ResultScreen({ vibeScores, onRestart }) {
           </div>
         )}
 
-        {/* Share button */}
-        <button
-          className="result-share-btn"
-          onClick={handleShare}
-          aria-label="Share your result"
-        >
-          {copied ? '✓ Copied!' : '↗ Share Result'}
-        </button>
+        {/* Watermark — only visible during capture */}
+        {isCapturing && (
+          <div className="result-watermark">
+            <div className="watermark-logo">M</div>
+            ModeSwap
+          </div>
+        )}
 
-        {/* Restart button */}
-        <button className="result-restart-btn" onClick={onRestart}>
-          Swipe Again
-        </button>
+        {/* Action buttons — hidden during capture */}
+        {!isCapturing && (
+          <div className="result-actions">
+            {/* Share button */}
+            <button
+              className="result-share-btn"
+              onClick={handleShare}
+              aria-label="Share your result"
+            >
+              {copied ? '✓ Copied!' : '↗ Share Result'}
+            </button>
+
+            {/* Restart button */}
+            <button className="result-restart-btn" onClick={onRestart}>
+              Swipe Again
+            </button>
+          </div>
+        )}
 
       </div>
     </div>
@@ -175,4 +230,3 @@ const vibeDescriptions = {
 }
 
 export default ResultScreen
-
