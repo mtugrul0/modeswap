@@ -1,1 +1,158 @@
-/* TODO: implement in next phase */
+/* ============================================================
+   START SCREEN STYLES
+   ============================================================ */
+
+.start-screen {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  gap: 0;
+}
+
+/* Ambient glow orb in background */
+.start-bg-orb {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(600px, 150vw);
+  height: min(600px, 150vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  animation: orb-pulse 4s ease-in-out infinite;
+}
+
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 1;   transform: translateX(-50%) scale(1.1); }
+}
+
+/* Content wrapper — staggered entrance animation */
+.start-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  width: 100%;
+  animation: content-enter 0.8s var(--transition-slow) both;
+}
+
+@keyframes content-enter {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Eyebrow */
+.start-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  animation: fade-in 0.6s 0.1s both;
+}
+
+/* Hero title */
+.start-title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  line-height: 0.9;
+  color: var(--color-text-primary);
+  animation: fade-in 0.6s 0.2s both;
+}
+
+.start-title-accent {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-accent);
+  text-shadow: 0 0 30px var(--color-accent-glow);
+}
+
+/* Description */
+.start-description {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  line-height: 1.6;
+  animation: fade-in 0.6s 0.3s both;
+}
+
+/* Vibe badges row */
+.start-vibes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  animation: fade-in 0.6s 0.4s both;
+}
+
+/* CTA Button */
+.start-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-10);
+  background: var(--color-accent);
+  color: white;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+  box-shadow: 0 0 0 0 var(--color-accent-glow);
+  animation: fade-in 0.6s 0.5s both, btn-glow-pulse 2.5s 1s ease-in-out infinite;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes btn-glow-pulse {
+  0%, 100% { box-shadow: 0 4px 20px var(--color-accent-glow); }
+  50%       { box-shadow: 0 4px 40px rgba(255, 77, 0, 0.5); }
+}
+
+.start-btn:hover,
+.start-btn:focus-visible {
+  background: #ff6520;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.start-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.start-btn-arrow {
+  font-size: var(--text-xl);
+  transition: transform var(--transition-base);
+}
+
+.start-btn:hover .start-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Hint text */
+.start-hint {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  animation: fade-in 0.6s 0.7s both;
+}
+
+/* Shared fade-in keyframe */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive (tablet and up) --- */
+@media (min-width: 640px) {
+  .start-title {
+    line-height: 0.85;
+  }
+  .start-description {
+    font-size: var(--text-lg);
+  }
+}

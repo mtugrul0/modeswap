@@ -20,9 +20,9 @@
 - [x] Dark mode atmosphere established
 
 ## Phase 3: Start Screen
-- [ ] `StartScreen.jsx` component built
-- [ ] `start.css` styled
-- [ ] Smooth entrance animation
+- [x] `StartScreen.jsx` component built
+- [x] `start.css` styled
+- [x] Smooth entrance animation
 
 ## Phase 4: Swipe Screen & Core Mechanic
 - [ ] `SwipeScreen.jsx` built
