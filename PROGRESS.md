@@ -25,14 +25,14 @@
 - [x] Smooth entrance animation
 
 ## Phase 4: Swipe Screen & Core Mechanic
-- [ ] `SwipeScreen.jsx` built
-- [ ] Music card UI implemented
-- [ ] Mouse drag support (mousedown, mousemove, mouseup)
-- [ ] Touch drag support (touchstart, touchmove, touchend)
-- [ ] Swipe direction detection (left/right threshold)
-- [ ] Card exit animation (translateX + rotate)
-- [ ] Vibe score counter logic
-- [ ] `useSwipe.js` custom hook extracted
+- [x] `SwipeScreen.jsx` built
+- [x] Music card UI implemented
+- [x] Mouse drag support (mousedown, mousemove, mouseup)
+- [x] Touch drag support (touchstart, touchmove, touchend)
+- [x] Swipe direction detection (left/right threshold)
+- [x] Card exit animation (translateX + rotate)
+- [x] Vibe score counter logic
+- [x] `useSwipe.js` custom hook extracted
 
 ## Phase 5: Result Screen
 - [ ] `ResultScreen.jsx` built

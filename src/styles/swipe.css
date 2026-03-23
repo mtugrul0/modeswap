@@ -1,1 +1,253 @@
-/* TODO: implement in next phase */
+/* ============================================================
+   SWIPE SCREEN STYLES
+   ============================================================ */
+
+.swipe-screen {
+  gap: var(--space-6);
+  justify-content: space-between;
+  padding: var(--space-6) var(--space-4) var(--space-8);
+}
+
+/* --- Progress dots --- */
+.swipe-progress {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.swipe-progress-dot {
+  width: 28px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-light);
+  transition: background var(--transition-base), width var(--transition-base);
+}
+
+.swipe-progress-dot.done {
+  background: var(--color-accent);
+}
+
+.swipe-progress-dot.active {
+  background: var(--color-text-secondary);
+  width: 40px;
+}
+
+/* --- Card Stack --- */
+.card-stack {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Music Card Base --- */
+.music-card {
+  position: absolute;
+  width: 100%;
+  max-width: 340px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Next card (behind) — smaller and lower opacity for depth */
+.music-card--next {
+  transform: scale(0.95) translateY(12px);
+  opacity: 0.6;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Active card — on top, interactive */
+.music-card--active {
+  z-index: 2;
+  cursor: grab;
+  will-change: transform;
+}
+
+.music-card--active:active {
+  cursor: grabbing;
+}
+
+/* Exit animations */
+.music-card.exit-right {
+  animation: exit-right 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+.music-card.exit-left {
+  animation: exit-left 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes exit-right {
+  to { transform: translateX(150%) rotate(25deg); opacity: 0; }
+}
+@keyframes exit-left {
+  to { transform: translateX(-150%) rotate(-25deg); opacity: 0; }
+}
+
+/* --- Card Cover Image --- */
+.card-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* --- Card Info Panel --- */
+.card-info {
+  padding: var(--space-4) var(--space-5) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: linear-gradient(to bottom, var(--color-surface), var(--color-surface-2));
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-text-primary);
+  letter-spacing: 0.03em;
+  margin-top: var(--space-1);
+}
+
+.card-artist {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.card-album {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* --- Audio Preview --- */
+.card-audio {
+  margin-top: var(--space-2);
+}
+
+.audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.audio-btn:hover,
+.audio-btn:focus-visible {
+  background: var(--color-border);
+  border-color: var(--color-accent);
+}
+
+/* --- Like / Pass Overlays --- */
+.card-overlay {
+  position: absolute;
+  top: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  z-index: 10;
+  border-width: 3px;
+  border-style: solid;
+  transition: opacity 0.05s;
+}
+
+.card-overlay--like {
+  left: var(--space-4);
+  color: var(--color-like);
+  border-color: var(--color-like);
+  transform: rotate(-15deg);
+}
+
+.card-overlay--pass {
+  right: var(--space-4);
+  color: var(--color-pass);
+  border-color: var(--color-pass);
+  transform: rotate(15deg);
+}
+
+/* --- Action Buttons --- */
+.swipe-actions {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xl);
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text-primary);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.action-btn--pass {
+  color: var(--color-pass);
+  border-color: var(--color-pass);
+}
+
+.action-btn--like {
+  color: var(--color-like);
+  border-color: var(--color-like);
+  width: 72px;
+  height: 72px;
+  font-size: var(--text-2xl);
+}
+
+.action-btn:hover:not(:disabled),
+.action-btn:focus-visible {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-sm);
+}
+
+.action-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --- Swipe hint --- */
+.swipe-hint {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+
+/* --- Responsive --- */
+@media (min-width: 640px) {
+  .music-card {
+    max-width: 380px;
+  }
+  .action-btn { width: 72px; height: 72px; }
+  .action-btn--like { width: 80px; height: 80px; }
+}
