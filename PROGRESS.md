@@ -9,9 +9,9 @@
 - [x] First Git commit made
 
 ## Phase 1: Data Layer
-- [ ] Mock database (8 iconic rock/metal tracks) written in `src/data/tracks.js`
-- [ ] `trackService.js` service functions implemented
-- [ ] Data verified and tested
+- [x] Mock database (8 iconic rock/metal tracks) written in `src/data/tracks.js`
+- [x] `trackService.js` service functions implemented
+- [x] Data verified and tested
 
 ## Phase 2: Global Styles & Design System
 - [ ] CSS custom properties (colors, fonts, spacing) defined in `global.css`
