@@ -171,8 +171,9 @@ function SwipeScreen({ onComplete }) {
           style={cardStyle}
           {...dragHandlers}
           onClick={() => {
+            if (isDragging) return
             // Attempt autoplay on first tap (user gesture unlocks audio policy)
-            if (audioRef.current && audioRef.current.paused && !isDragging) {
+            if (audioRef.current && audioRef.current.paused) {
               audioRef.current.play()
                 .then(() => setIsPlaying(true))
                 .catch(() => {

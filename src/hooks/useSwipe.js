@@ -18,6 +18,7 @@ export function useSwipe({ onSwipeLeft, onSwipeRight }) {
   const [isDragging, setIsDragging] = useState(false)
   const startX = useRef(null)
   const isDraggingRef = useRef(false)
+  const hasSwiped = useRef(false)
 
   // Clamp rotation: max 20deg either direction
   const rotation = Math.max(-20, Math.min(20, dragOffset * 0.12))
@@ -25,6 +26,7 @@ export function useSwipe({ onSwipeLeft, onSwipeRight }) {
   const handleDragStart = useCallback((clientX) => {
     startX.current = clientX
     isDraggingRef.current = true
+    hasSwiped.current = false
     setIsDragging(true)
   }, [])
 
@@ -35,8 +37,9 @@ export function useSwipe({ onSwipeLeft, onSwipeRight }) {
   }, [])
 
   const handleDragEnd = useCallback(() => {
-    if (!isDraggingRef.current) return
+    if (!isDraggingRef.current || hasSwiped.current) return
     isDraggingRef.current = false
+    hasSwiped.current = true
     setIsDragging(false)
 
     if (dragOffset > SWIPE_THRESHOLD) {
