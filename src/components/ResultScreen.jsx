@@ -1,6 +1,7 @@
 // src/components/ResultScreen.jsx
 import { useState, useEffect } from 'react'
 import { getRecommendationByVibe } from '../services/trackService'
+import { calculateWinner } from '../utils/calculateWinner'
 import '../styles/result.css'
 
 /**
@@ -55,6 +56,10 @@ function ResultScreen({ vibeScores, onRestart }) {
     melancholic:'🌙',
   }[resolvedVibe] || '🎵'
 
+  const scoreValues = Object.values(vibeScores);
+  const totalScore = scoreValues.reduce((sum, val) => sum + val, 0);
+  const isHardToPlease = scoreValues.length === 1 && totalScore === 1;
+
   return (
     <div className="screen result-screen">
       <div className="result-content" style={{ '--result-vibe-color': `var(--color-vibe-${resolvedVibe})` }}>
@@ -63,7 +68,9 @@ function ResultScreen({ vibeScores, onRestart }) {
         <div className="result-glow" aria-hidden="true" />
 
         {/* Eyebrow */}
-        <p className="result-eyebrow">Your Mode is</p>
+        <p className="result-eyebrow">
+          {isHardToPlease ? "You're hard to please. Here's our pick anyway." : "You should be listening to"}
+        </p>
 
         {/* Big vibe reveal */}
         <div className="result-vibe-reveal">
@@ -98,25 +105,6 @@ function ResultScreen({ vibeScores, onRestart }) {
           </div>
         )}
 
-        {/* Score breakdown */}
-        <div className="result-scores">
-          {Object.entries(vibeScores).map(([vibe, score]) => (
-            <div key={vibe} className="score-row">
-              <span className="score-vibe" data-vibe={vibe}>{vibe}</span>
-              <div className="score-bar-track">
-                <div
-                  className="score-bar-fill"
-                  style={{
-                    width: `${(score / 5) * 100}%`,
-                    background: `var(--color-vibe-${vibe})`
-                  }}
-                />
-              </div>
-              <span className="score-num">{score}</span>
-            </div>
-          ))}
-        </div>
-
         {/* Restart button */}
         <button className="result-restart-btn" onClick={onRestart}>
           Swipe Again
@@ -135,23 +123,5 @@ const vibeDescriptions = {
   melancholic:'You feel deeply, create deeply. Beauty lives in the shadows you see.',
 }
 
-/* --- Vibe calculation logic --- */
-function calculateWinner(vibeScores) {
-  if (!vibeScores || Object.keys(vibeScores).length === 0) {
-    return { vibe: 'chill', tie: false }
-  }
-
-  const maxScore = Math.max(...Object.values(vibeScores))
-  const winners  = Object.entries(vibeScores)
-    .filter(([, score]) => score === maxScore)
-    .map(([vibe]) => vibe)
-
-  if (winners.length === 1) {
-    return { vibe: winners[0], tie: false }
-  }
-
-  // Multiple winners — it's a tie
-  return { vibes: winners, tie: true }
-}
-
 export default ResultScreen
+

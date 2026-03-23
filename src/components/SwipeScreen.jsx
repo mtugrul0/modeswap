@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { getSessionTracks, getTiebreakerTracks } from '../services/trackService'
+import { getSessionTracks, getTiebreakerTracks, getAllVibes } from '../services/trackService'
 import { useSwipe } from '../hooks/useSwipe'
 import '../styles/swipe.css'
 
@@ -77,6 +77,12 @@ function SwipeScreen({ onComplete }) {
       };
 
       if (!isTiebreakerMode && newCount >= TOTAL_SWIPES) {
+        if (Object.keys(newScores).length === 0) {
+          const allVibes = getAllVibes()
+          const randomVibe = allVibes[Math.floor(Math.random() * allVibes.length)]
+          onComplete({ [randomVibe]: 1 })
+          return
+        }
         const winners = getWinners(newScores)
         if (winners.length === 1) {
           onComplete(newScores)
@@ -150,6 +156,14 @@ function SwipeScreen({ onComplete }) {
           </div>
         )}
 
+        {showHint && swipeCount === 0 && (
+          <div className="swipe-hint-overlay" aria-hidden="true">
+            <span className="swipe-hint-arrow swipe-hint-arrow--left">←</span>
+            <span className="swipe-hint-text">swipe</span>
+            <span className="swipe-hint-arrow swipe-hint-arrow--right">→</span>
+          </div>
+        )}
+
         {/* Current swipeable card */}
         <div
           className={`music-card music-card--active ${exitDirection ? `exit-${exitDirection}` : ''}`}
@@ -177,14 +191,6 @@ function SwipeScreen({ onComplete }) {
             <span>PASS</span>
           </div>
 
-          {showHint && swipeCount === 0 && (
-            <div className="swipe-hint-overlay" aria-hidden="true">
-              <span className="swipe-hint-arrow swipe-hint-arrow--left">←</span>
-              <span className="swipe-hint-text">swipe</span>
-              <span className="swipe-hint-arrow swipe-hint-arrow--right">→</span>
-            </div>
-          )}
-
           {/* Cover image */}
           <img
             src={currentTrack.coverUrl}
@@ -196,9 +202,6 @@ function SwipeScreen({ onComplete }) {
 
           {/* Card info */}
           <div className="card-info">
-            <span className="vibe-badge" data-vibe={currentTrack.vibe}>
-              {currentTrack.vibe}
-            </span>
             <h2 className="card-title">{currentTrack.title}</h2>
             <p className="card-artist">{currentTrack.artist}</p>
             <p className="card-album">{currentTrack.album} · {currentTrack.year}</p>
@@ -209,7 +212,7 @@ function SwipeScreen({ onComplete }) {
                 ref={audioRef}
                 src={currentTrack.audioPreviewUrl}
                 preload="none"
-                onEnded={() => setIsPlaying(false)}
+                loop
               />
               <button
                 className={`audio-btn ${isPlaying ? 'audio-btn--playing' : ''}`}

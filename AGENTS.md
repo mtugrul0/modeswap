@@ -1,7 +1,7 @@
 # AGENTS.md — ModeSwap Project Guide
 
 ## Project Overview
-ModeSwap is a Tinder-like music discovery app for iconic Rock and Metal tracks.
+ModeSwap is a swipe-based music discovery app for iconic Rock and Metal tracks.
 Built with Vite + React. Mobile-first. Dark mode. Production-ready MVP.
 
 ## Architecture Rules
