@@ -197,6 +197,36 @@
   text-align: right;
 }
 
+/* --- Share button --- */
+.result-share-btn {
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-full);
+  color: white;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform var(--transition-base),
+              background var(--transition-base),
+              box-shadow var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
+  animation: fade-up 0.5s 0.7s both;
+}
+
+.result-share-btn:hover,
+.result-share-btn:focus-visible {
+  background: #ff6520;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px var(--color-accent-glow);
+}
+
+.result-share-btn:active {
+  transform: scale(0.97);
+}
+
 /* --- Restart button --- */
 .result-restart-btn {
   padding: var(--space-3) var(--space-8);

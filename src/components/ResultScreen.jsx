@@ -14,6 +14,7 @@ import '../styles/result.css'
 function ResultScreen({ vibeScores, onRestart }) {
   const [resolvedVibe, setResolvedVibe] = useState(null)
   const [phase,        setPhase]        = useState('calculating') // 'calculating' | 'result'
+  const [copied,       setCopied]       = useState(false)
 
   useEffect(() => {
     // Small delay for dramatic effect
@@ -66,6 +67,35 @@ function ResultScreen({ vibeScores, onRestart }) {
   const totalScore = scoreValues.reduce((sum, val) => sum + val, 0);
   const isHardToPlease = scoreValues.length === 1 && totalScore === 1;
 
+  const handleShare = async () => {
+    const emoji = vibeEmoji || '🎵'
+    const description = vibeDescriptions[resolvedVibe]?.split('.')[0] || ''
+    const track = recommendation
+      ? `${recommendation.title} — ${recommendation.artist}`
+      : ''
+
+    const text = `🤘 My ModeSwap result: ${resolvedVibe.toUpperCase()}\n${emoji} ${description}.\nRecommended track: ${track}\n\nFind your mode → modeswap.app`
+
+    // Use Web Share API on mobile if available
+    if (navigator.share) {
+      try {
+        await navigator.share({ text })
+      } catch (e) {
+        // User cancelled share — do nothing
+      }
+      return
+    }
+
+    // Fallback: copy to clipboard
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (e) {
+      console.error('Copy failed', e)
+    }
+  }
+
   return (
     <div className="screen result-screen">
       <div className="result-content" style={{ '--result-vibe-color': `var(--color-vibe-${resolvedVibe})` }}>
@@ -110,6 +140,15 @@ function ResultScreen({ vibeScores, onRestart }) {
             </div>
           </div>
         )}
+
+        {/* Share button */}
+        <button
+          className="result-share-btn"
+          onClick={handleShare}
+          aria-label="Share your result"
+        >
+          {copied ? '✓ Copied!' : '↗ Share Result'}
+        </button>
 
         {/* Restart button */}
         <button className="result-restart-btn" onClick={onRestart}>
