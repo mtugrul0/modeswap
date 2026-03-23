@@ -35,11 +35,11 @@
 - [x] `useSwipe.js` custom hook extracted
 
 ## Phase 5: Result Screen
-- [ ] `ResultScreen.jsx` built
-- [ ] Winning vibe calculation logic
-- [ ] Tie-breaking flow (ask user to choose between tied vibes)
-- [ ] Track recommendation display
-- [ ] Restart button wired up
+- [x] `ResultScreen.jsx` built
+- [x] Winning vibe calculation logic
+- [x] Tie-breaking flow (ask user to choose between tied vibes)
+- [x] Track recommendation display
+- [x] Restart button wired up
 
 ## Phase 6: Audio Integration
 - [ ] Audio preview (30s) integrated into SwipeScreen card

@@ -1,1 +1,313 @@
-/* TODO: implement in next phase */
+/* ============================================================
+   RESULT SCREEN STYLES
+   ============================================================ */
+
+.result-screen {
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+/* Ambient glow matching the winning vibe color */
+.result-glow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--result-vibe-color) 20%, transparent), transparent 70%);
+  pointer-events: none;
+  animation: result-glow-in 1s ease both;
+}
+
+@keyframes result-glow-in {
+  from { opacity: 0; transform: translateX(-50%) scale(0.5); }
+  to   { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+/* Content wrapper */
+.result-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  animation: result-enter 0.7s var(--transition-slow) both;
+}
+
+@keyframes result-enter {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Eyebrow */
+.result-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* Vibe reveal */
+.result-vibe-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  animation: vibe-pop 0.5s 0.3s var(--transition-spring) both;
+}
+
+@keyframes vibe-pop {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.result-emoji {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.result-vibe-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 18vw, 7rem);
+  color: var(--result-vibe-color, var(--color-accent));
+  text-shadow: 0 0 40px color-mix(in srgb, var(--result-vibe-color, var(--color-accent)) 40%, transparent);
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+/* Description */
+.result-description {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+/* --- Track recommendation card --- */
+.result-recommendation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: fade-up 0.5s 0.5s both;
+}
+
+.result-rec-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: left;
+}
+
+.result-track-card {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  text-align: left;
+}
+
+.result-track-cover {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.result-track-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-width: 0;
+}
+
+.result-track-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.result-track-artist {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* --- Score breakdown --- */
+.result-scores {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: fade-up 0.5s 0.6s both;
+}
+
+.score-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 24px;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.score-vibe {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  text-align: right;
+}
+
+.score-bar-track {
+  height: 6px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s var(--transition-slow);
+  min-width: 4px;
+}
+
+.score-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+/* --- Restart button --- */
+.result-restart-btn {
+  padding: var(--space-3) var(--space-8);
+  background: transparent;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-base);
+  animation: fade-up 0.5s 0.8s both;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.result-restart-btn:hover,
+.result-restart-btn:focus-visible {
+  border-color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  transform: translateY(-1px);
+}
+
+/* --- Tie-breaking screen --- */
+.result-content--tie {
+  gap: var(--space-8);
+}
+
+.result-tie-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  line-height: 1.15;
+  color: var(--color-text-primary);
+}
+
+.tie-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.tie-option-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-spring);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tie-option-btn:hover,
+.tie-option-btn:focus-visible {
+  background: var(--color-surface-2);
+  transform: translateY(-2px);
+}
+
+.tie-option-btn[data-vibe="aggressive"]:hover { border-color: var(--color-vibe-aggressive); }
+.tie-option-btn[data-vibe="party"]:hover      { border-color: var(--color-vibe-party); }
+.tie-option-btn[data-vibe="chill"]:hover      { border-color: var(--color-vibe-chill); }
+.tie-option-btn[data-vibe="melancholic"]:hover{ border-color: var(--color-vibe-melancholic); }
+
+.tie-track-hint {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* --- Calculating spinner --- */
+.result-calculating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.result-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--color-border-light);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Shared keyframe --- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive --- */
+@media (min-width: 640px) {
+  .tie-options {
+    flex-direction: row;
+  }
+  .tie-option-btn {
+    flex: 1;
+    align-items: center;
+    text-align: center;
+  }
+}
