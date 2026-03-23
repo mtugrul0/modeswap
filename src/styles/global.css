@@ -16,12 +16,12 @@
 /* --- Design Tokens --- */
 :root {
   /* Colors */
-  --color-bg:           #0a0a0a;
-  --color-surface:      #111111;
-  --color-surface-2:    #1a1a1a;
-  --color-surface-3:    #242424;
-  --color-border:       #2a2a2a;
-  --color-border-light: #333333;
+  --color-bg:           #0d0d0f;
+  --color-surface:      #161618;
+  --color-surface-2:    #1e1e21;
+  --color-surface-3:    #27272b;
+  --color-border:       #2e2e32;
+  --color-border-light: #38383d;
 
   --color-text-primary:   #f0f0f0;
   --color-text-secondary: #888888;
@@ -94,12 +94,12 @@
 }
 
 [data-theme="light"] {
-  --color-bg:           #f5f5f0;
-  --color-surface:      #ffffff;
-  --color-surface-2:    #f0efe8;
-  --color-surface-3:    #e8e7df;
-  --color-border:       #d8d7cf;
-  --color-border-light: #c8c7bf;
+  --color-bg:           #f2f1eb;
+  --color-surface:      #fafaf7;
+  --color-surface-2:    #eceae3;
+  --color-surface-3:    #e2e0d8;
+  --color-border:       #d4d2ca;
+  --color-border-light: #c6c4bb;
 
   --color-text-primary:   #111111;
   --color-text-secondary: #555555;

@@ -53,10 +53,10 @@
 - [x] All micro-interactions refined
 
 ## Phase 8: Docker & Deployment Prep
-- [ ] Dockerfile verified
-- [ ] docker-compose.yml verified
-- [ ] Production build tested (`npm run build`)
-- [ ] Final commit made
+- [x] Dockerfile verified
+- [x] docker-compose.yml verified
+- [x] Production build tested (`npm run build`)
+- [x] Final commit made
 
 ## Feature: Mood Expansion
 - [x] Expanded from 4 to 8 moods
