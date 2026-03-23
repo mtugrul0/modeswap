@@ -93,6 +93,41 @@
   --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+[data-theme="light"] {
+  --color-bg:           #f5f5f0;
+  --color-surface:      #ffffff;
+  --color-surface-2:    #f0efe8;
+  --color-surface-3:    #e8e7df;
+  --color-border:       #d8d7cf;
+  --color-border-light: #c8c7bf;
+
+  --color-text-primary:   #111111;
+  --color-text-secondary: #555555;
+  --color-text-muted:     #999999;
+
+  --color-accent:        #e03e00;
+  --color-accent-glow:   rgba(224, 62, 0, 0.2);
+  --color-accent-subtle: rgba(224, 62, 0, 0.08);
+
+  --color-vibe-aggressive: #dc2626;
+  --color-vibe-party:      #84cc16;
+  --color-vibe-chill:      #0284c7;
+  --color-vibe-melancholic:#7c3aed;
+  --color-vibe-sad:        #2563eb;
+  --color-vibe-energetic:  #ca8a04;
+  --color-vibe-dark:       #6d28d9;
+  --color-vibe-euphoric:   #db2777;
+  --color-vibe-romantic:   #e11d48;
+  --color-vibe-rebellious: #16a34a;
+
+  --color-like:   #16a34a;
+  --color-pass:   #dc2626;
+
+  --shadow-card: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px var(--color-border);
+  --shadow-glow: 0 0 40px var(--color-accent-glow);
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.08);
+}
+
 /* --- Base Styles --- */
 html {
   font-size: 16px;
@@ -111,6 +146,10 @@ body {
 
   /* Subtle noise texture overlay for depth */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+[data-theme="light"] body {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
 }
 
 #root {
@@ -230,4 +269,37 @@ img {
 @keyframes screen-fade-in {
   from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Theme Toggle Button --- */
+.theme-toggle-btn {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-base),
+              border-color var(--transition-base),
+              transform var(--transition-spring);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle-btn:hover,
+.theme-toggle-btn:focus-visible {
+  border-color: var(--color-accent);
+  transform: scale(1.1) rotate(15deg);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
 }
