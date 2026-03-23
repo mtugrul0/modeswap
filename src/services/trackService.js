@@ -18,7 +18,7 @@ export function getAllTracks() {
  * @param {number} count - How many tracks to include in session
  * @returns {Array}
  */
-export function getSessionTracks(count = 8) {
+export function getSessionTracks(count = 10) {
   return getAllTracks().slice(0, count);
 }
 
@@ -26,7 +26,7 @@ export function getSessionTracks(count = 8) {
  * Given a vibe string, returns the best matching track for recommendation.
  * Priority: picks the track with the most "iconic" feel (lowest BPM for
  * melancholic/chill, highest BPM for aggressive/party).
- * @param {string} vibe - One of: "melancholic", "chill", "aggressive", "party"
+ * @param {string} vibe - One of: "aggressive", "chill", "party", "melancholic", "sad", "energetic", "dark", "euphoric", "romantic", "rebellious"
  * @returns {Object|null} Track object or null if not found
  */
 export function getRecommendationByVibe(vibe) {

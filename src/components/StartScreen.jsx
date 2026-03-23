@@ -77,6 +77,12 @@ function StartScreen({ onStart }) {
                 <span className="vibe-badge" data-vibe="chill">Chill</span>
                 <span className="vibe-badge" data-vibe="party">Party</span>
                 <span className="vibe-badge" data-vibe="melancholic">Melancholic</span>
+                <span className="vibe-badge" data-vibe="sad">Sad</span>
+                <span className="vibe-badge" data-vibe="energetic">Energetic</span>
+                <span className="vibe-badge" data-vibe="dark">Dark</span>
+                <span className="vibe-badge" data-vibe="euphoric">Euphoric</span>
+                <span className="vibe-badge" data-vibe="romantic">Romantic</span>
+                <span className="vibe-badge" data-vibe="rebellious">Rebellious</span>
               </div>
             ))}
           </div>

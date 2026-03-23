@@ -37,7 +37,12 @@
   --color-vibe-party:      #c8ff00;
   --color-vibe-chill:      #00d4ff;
   --color-vibe-melancholic:#a78bfa;
-
+  --color-vibe-sad:        #60a5fa;
+  --color-vibe-energetic:  #facc15;
+  --color-vibe-dark:       #7c3aed;
+  --color-vibe-euphoric:   #f472b6;
+  --color-vibe-romantic:   #fb7185;
+  --color-vibe-rebellious: #4ade80;
   /* Swipe feedback colors */
   --color-like:   #22c55e;
   --color-pass:   #ef4444;
@@ -181,6 +186,12 @@ img {
   color: var(--color-vibe-melancholic);
   background: rgba(167, 139, 250, 0.1);
 }
+.vibe-badge[data-vibe="sad"]        { color: var(--color-vibe-sad);        background: rgba(96, 165, 250, 0.1); }
+.vibe-badge[data-vibe="energetic"]  { color: var(--color-vibe-energetic);  background: rgba(250, 204, 21, 0.1); }
+.vibe-badge[data-vibe="dark"]       { color: var(--color-vibe-dark);       background: rgba(124, 58, 237, 0.1); }
+.vibe-badge[data-vibe="euphoric"]   { color: var(--color-vibe-euphoric);   background: rgba(244, 114, 182, 0.1); }
+.vibe-badge[data-vibe="romantic"]   { color: var(--color-vibe-romantic);   background: rgba(251, 113, 133, 0.1); }
+.vibe-badge[data-vibe="rebellious"] { color: var(--color-vibe-rebellious); background: rgba(74, 222, 128, 0.1); }
 
 /* --- Screen Wrapper (used by all 3 screens) --- */
 .screen {

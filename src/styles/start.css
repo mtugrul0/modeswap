@@ -26,8 +26,17 @@
 }
 
 @keyframes orb-pulse {
-  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-  50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 /* Content wrapper — staggered entrance animation */
@@ -44,8 +53,15 @@
 }
 
 @keyframes content-enter {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Eyebrow */
@@ -97,8 +113,15 @@
 }
 
 @keyframes ripple-anim {
-  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-  100% { transform: translate(-50%, -50%) scale(15); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0;
+  }
 }
 
 /* Vibe tags marquee */
@@ -114,7 +137,7 @@
 .start-vibes-track {
   display: flex;
   width: max-content;
-  animation: marquee 20s linear infinite;
+  animation: marquee 12s linear infinite;
   will-change: transform;
 }
 
@@ -129,8 +152,13 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333333%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333333%);
+  }
 }
 
 /* CTA Button */
@@ -153,8 +181,15 @@
 }
 
 @keyframes btn-glow-pulse {
-  0%, 100% { box-shadow: 0 4px 20px var(--color-accent-glow); }
-  50%       { box-shadow: 0 4px 40px rgba(255, 77, 0, 0.5); }
+
+  0%,
+  100% {
+    box-shadow: 0 4px 20px var(--color-accent-glow);
+  }
+
+  50% {
+    box-shadow: 0 4px 40px rgba(255, 77, 0, 0.5);
+  }
 }
 
 .start-btn:hover,
@@ -187,8 +222,15 @@
 
 /* Shared fade-in keyframe */
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- Responsive (tablet and up) --- */
@@ -196,6 +238,7 @@
   .start-title {
     line-height: 0.85;
   }
+
   .start-description {
     font-size: var(--text-lg);
   }

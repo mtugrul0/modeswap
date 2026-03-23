@@ -3,7 +3,7 @@ import { getSessionTracks, getTiebreakerTracks, getAllVibes } from '../services/
 import { useSwipe } from '../hooks/useSwipe'
 import '../styles/swipe.css'
 
-const TOTAL_SWIPES = 5
+const TOTAL_SWIPES = 7
 
 /**
  * SwipeScreen — core swipe mechanic
