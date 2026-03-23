@@ -10,7 +10,7 @@ import { tracks } from '../data/tracks.js';
  * @returns {Array} Shuffled array of track objects
  */
 export function getAllTracks() {
-  return [...tracks].sort(() => Math.random() - 0.5);
+  return tracks.filter((t) => !t.tiebreaker).sort(() => Math.random() - 0.5);
 }
 
 /**
@@ -47,4 +47,29 @@ export function getRecommendationByVibe(vibe) {
  */
 export function getAllVibes() {
   return [...new Set(tracks.map((t) => t.vibe))];
+}
+
+/**
+ * Given an array of tied vibes, returns one tiebreaker track for each,
+ * shuffled. Only searches among tracks designated as tiebreakers.
+ * @param {string[]} tiedVibes - Array of tied vibe strings, e.g. ["chill", "party"]
+ * @returns {Array} Array of tiebreaker tracks
+ */
+export function getTiebreakerTracks(tiedVibes) {
+  const matchingTiebreakers = tracks.filter(
+    (t) => t.tiebreaker && tiedVibes.includes(t.vibe)
+  );
+
+  // Group by vibe to ensure we get exactly one per tied vibe 
+  const uniqueTiebreakers = [];
+  const foundVibes = new Set();
+  
+  for (const t of matchingTiebreakers) {
+    if (!foundVibes.has(t.vibe)) {
+      uniqueTiebreakers.push(t);
+      foundVibes.add(t.vibe);
+    }
+  }
+
+  return uniqueTiebreakers.sort(() => Math.random() - 0.5);
 }

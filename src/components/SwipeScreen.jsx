@@ -1,6 +1,5 @@
-// src/components/SwipeScreen.jsx
 import { useState, useRef, useEffect } from 'react'
-import { getSessionTracks } from '../services/trackService'
+import { getSessionTracks, getTiebreakerTracks } from '../services/trackService'
 import { useSwipe } from '../hooks/useSwipe'
 import '../styles/swipe.css'
 
@@ -13,7 +12,7 @@ const TOTAL_SWIPES = 5
  *               Called after TOTAL_SWIPES swipes with the accumulated vibe scores.
  */
 function SwipeScreen({ onComplete }) {
-  const [tracks]        = useState(() => getSessionTracks(TOTAL_SWIPES + 3))
+  const [tracks,        setTracks]         = useState(() => getSessionTracks(TOTAL_SWIPES))
   const [currentIndex,  setCurrentIndex]  = useState(0)
   const [vibeScores,    setVibeScores]     = useState({})
   const [swipeCount,    setSwipeCount]     = useState(0)
@@ -21,6 +20,7 @@ function SwipeScreen({ onComplete }) {
   const [isAnimating,   setIsAnimating]    = useState(false)
   const [isPlaying,     setIsPlaying]      = useState(false)
   const [showHint,      setShowHint]       = useState(true)
+  const [isTiebreakerMode, setIsTiebreakerMode] = useState(false)
   const audioRef = useRef(null)
 
   const currentTrack = tracks[currentIndex]
@@ -52,11 +52,12 @@ function SwipeScreen({ onComplete }) {
     setExitDirection(direction)
 
     // Score the like
+    const newScores = direction === 'right'
+      ? { ...vibeScores, [currentTrack.vibe]: (vibeScores[currentTrack.vibe] || 0) + 1 }
+      : { ...vibeScores }
+
     if (direction === 'right') {
-      setVibeScores(prev => ({
-        ...prev,
-        [currentTrack.vibe]: (prev[currentTrack.vibe] || 0) + 1
-      }))
+      setVibeScores(newScores)
     }
 
     // After animation, advance card
@@ -67,12 +68,33 @@ function SwipeScreen({ onComplete }) {
       setExitDirection(null)
       setIsAnimating(false)
 
-      if (newCount >= TOTAL_SWIPES) {
-        // Pass updated scores to parent
-        const finalScores = direction === 'right'
-          ? { ...vibeScores, [currentTrack.vibe]: (vibeScores[currentTrack.vibe] || 0) + 1 }
-          : { ...vibeScores }
-        onComplete(finalScores)
+      const getWinners = (scores) => {
+        if (!scores || Object.keys(scores).length === 0) return [];
+        const maxScore = Math.max(...Object.values(scores));
+        return Object.entries(scores)
+          .filter(([, score]) => score === maxScore)
+          .map(([vibe]) => vibe);
+      };
+
+      if (!isTiebreakerMode && newCount >= TOTAL_SWIPES) {
+        const winners = getWinners(newScores)
+        if (winners.length === 1) {
+          onComplete(newScores)
+        } else {
+          setIsTiebreakerMode(true)
+          const tieTracks = getTiebreakerTracks(winners)
+          setTracks(prev => [...prev, ...tieTracks])
+        }
+      } else if (isTiebreakerMode) {
+        const winners = getWinners(newScores)
+        if (winners.length === 1) {
+          onComplete(newScores)
+        } else {
+          if (currentIndex + 1 >= tracks.length) {
+            newScores[currentTrack.vibe] = (newScores[currentTrack.vibe] || 0) + 0.1
+            onComplete(newScores)
+          }
+        }
       }
     }, 400)
   }
@@ -101,13 +123,17 @@ function SwipeScreen({ onComplete }) {
   return (
     <div className="screen swipe-screen">
       {/* Progress bar */}
-      <div className="swipe-progress" aria-label={`${swipeCount} of ${TOTAL_SWIPES} swipes`}>
-        {Array.from({ length: TOTAL_SWIPES }).map((_, i) => (
-          <div
-            key={i}
-            className={`swipe-progress-dot ${i < swipeCount ? 'done' : ''} ${i === swipeCount ? 'active' : ''}`}
-          />
-        ))}
+      <div className="swipe-progress" aria-label={isTiebreakerMode ? "Tiebreaker mode" : `${swipeCount} of ${TOTAL_SWIPES} swipes`}>
+        {isTiebreakerMode ? (
+          <div className="tiebreaker-banner">Too close to call — keep swiping</div>
+        ) : (
+          Array.from({ length: TOTAL_SWIPES }).map((_, i) => (
+            <div
+              key={i}
+              className={`swipe-progress-dot ${i < swipeCount ? 'done' : ''} ${i === swipeCount ? 'active' : ''}`}
+            />
+          ))
+        )}
       </div>
 
       {/* Card stack */}

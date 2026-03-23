@@ -12,8 +12,7 @@ import '../styles/result.css'
  */
 function ResultScreen({ vibeScores, onRestart }) {
   const [resolvedVibe, setResolvedVibe] = useState(null)
-  const [tiedVibes,    setTiedVibes]    = useState([])
-  const [phase,        setPhase]        = useState('calculating') // 'calculating' | 'tie' | 'result'
+  const [phase,        setPhase]        = useState('calculating') // 'calculating' | 'result'
 
   useEffect(() => {
     // Small delay for dramatic effect
@@ -21,8 +20,9 @@ function ResultScreen({ vibeScores, onRestart }) {
       const result = calculateWinner(vibeScores)
 
       if (result.tie) {
-        setTiedVibes(result.vibes)
-        setPhase('tie')
+        // Should no longer happen due to automatic tiebreakers, but fallback
+        setResolvedVibe(result.vibes[0])
+        setPhase('result')
       } else {
         setResolvedVibe(result.vibe)
         setPhase('result')
@@ -31,11 +31,6 @@ function ResultScreen({ vibeScores, onRestart }) {
 
     return () => clearTimeout(timer)
   }, [vibeScores])
-
-  const handleTieBreak = (chosenVibe) => {
-    setResolvedVibe(chosenVibe)
-    setPhase('result')
-  }
 
   // --- Calculating / loading state ---
   if (phase === 'calculating') {
@@ -49,38 +44,7 @@ function ResultScreen({ vibeScores, onRestart }) {
     )
   }
 
-  // --- Tie-breaking screen ---
-  if (phase === 'tie') {
-    return (
-      <div className="screen result-screen">
-        <div className="result-content result-content--tie">
-          <p className="result-eyebrow">It's a tie — you decide</p>
-          <h2 className="result-tie-title">Two vibes matched equally.<br />Which one is more YOU?</h2>
 
-          <div className="tie-options">
-            {tiedVibes.map((vibe) => {
-              const track = getRecommendationByVibe(vibe)
-              return (
-                <button
-                  key={vibe}
-                  className="tie-option-btn"
-                  data-vibe={vibe}
-                  onClick={() => handleTieBreak(vibe)}
-                >
-                  <span className="vibe-badge" data-vibe={vibe}>{vibe}</span>
-                  {track && (
-                    <span className="tie-track-hint">
-                      e.g. {track.title} — {track.artist}
-                    </span>
-                  )}
-                </button>
-              )
-            })}
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   // --- Final result screen ---
   const recommendation = getRecommendationByVibe(resolvedVibe)

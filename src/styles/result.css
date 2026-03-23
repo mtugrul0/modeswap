@@ -220,55 +220,7 @@
   transform: translateY(-1px);
 }
 
-/* --- Tie-breaking screen --- */
-.result-content--tie {
-  gap: var(--space-8);
-}
 
-.result-tie-title {
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
-  line-height: 1.15;
-  color: var(--color-text-primary);
-}
-
-.tie-options {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  width: 100%;
-}
-
-.tie-option-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-2);
-  padding: var(--space-5) var(--space-6);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: border-color var(--transition-base), background var(--transition-base), transform var(--transition-spring);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.tie-option-btn:hover,
-.tie-option-btn:focus-visible {
-  background: var(--color-surface-2);
-  transform: translateY(-2px);
-}
-
-.tie-option-btn[data-vibe="aggressive"]:hover { border-color: var(--color-vibe-aggressive); }
-.tie-option-btn[data-vibe="party"]:hover      { border-color: var(--color-vibe-party); }
-.tie-option-btn[data-vibe="chill"]:hover      { border-color: var(--color-vibe-chill); }
-.tie-option-btn[data-vibe="melancholic"]:hover{ border-color: var(--color-vibe-melancholic); }
-
-.tie-track-hint {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  font-style: italic;
-}
 
 /* --- Calculating spinner --- */
 .result-calculating {
@@ -302,12 +254,5 @@
 
 /* --- Responsive --- */
 @media (min-width: 640px) {
-  .tie-options {
-    flex-direction: row;
-  }
-  .tie-option-btn {
-    flex: 1;
-    align-items: center;
-    text-align: center;
-  }
+
 }
