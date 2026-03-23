@@ -35,3 +35,8 @@ Built with Vite + React. Mobile-first. Dark mode. Production-ready MVP.
 - Data service: `src/services/trackService.js`
 - Custom swipe hook: `src/hooks/useSwipe.js`
 - Global styles + CSS variables: `src/styles/global.css`
+
+## Environment Notes
+- npm is not in PowerShell PATH. Always use full absolute path: `& "C:\Program Files\nodejs\npm.cmd"`
+- NEVER skip tests. If npm is not found, find its absolute path and use that.
+- All commits must be preceded by a passing test run.
