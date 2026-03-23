@@ -47,6 +47,23 @@ function SwipeScreen({ onComplete }) {
     return () => clearTimeout(t)
   }, [])
 
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'ArrowRight') {
+        setColorFeedback(1)
+        setTimeout(() => setColorFeedback(0), 400)
+        triggerSwipe('right')
+      }
+      if (e.key === 'ArrowLeft') {
+        setColorFeedback(-1)
+        setTimeout(() => setColorFeedback(0), 400)
+        triggerSwipe('left')
+      }
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [isAnimating, currentIndex])
+
   const triggerSwipe = (direction) => {
     if (isAnimating) return
     setIsAnimating(true)
@@ -129,6 +146,8 @@ function SwipeScreen({ onComplete }) {
 
   const activeDragOffset = dragOffset !== 0 ? dragOffset : colorFeedback * 80
   const activeDragRatio = Math.min(Math.abs(activeDragOffset) / 80, 1)
+
+  const isTouchDevice = () => window.matchMedia('(hover: none)').matches
 
   return (
     <div
@@ -267,6 +286,10 @@ function SwipeScreen({ onComplete }) {
       </div>
 
       <p className="swipe-hint">Swipe right to like · left to pass</p>
+      
+      {!isTouchDevice() && (
+        <p className="keyboard-hint">← → arrow keys to swipe</p>
+      )}
     </div>
   )
 }
