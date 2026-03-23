@@ -25,7 +25,7 @@ export const tracks = [
     year: 1997,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5a/75/08/5a7508ee-f167-37aa-3b1a-7c63db8cb450/mzaf_11938743806268466326.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/78/af/45/78af45f6-e4e6-5681-c1f6-a20e3949ab8c/18UMGIM31237.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const tracks = [
     year: 2008,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/29/45/0c/29450c9f-f00f-65bf-5ced-a8c3cf1751c7/mzaf_15273980502575458266.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/38/8d/35/388d3526-771c-4c3e-451b-f10afdbf19d9/016861752200.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ export const tracks = [
     year: 1982,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/65/73/38/6573381f-daf9-4b1e-d3bb-cb3eac310257/mzaf_17633631833638202478.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/6a/e1/0e/6ae10e36-46ca-6143-83b1-0026e8c3c248/0889326208235.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ export const tracks = [
     year: 1979,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cb/f4/3f/cbf43f47-747d-bcc2-19cf-6bf2c523f5d8/mzaf_9504019990576453182.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/b9/c8/ef/b9c8ef42-bbc9-64df-11f8-717571f6730f/886443673458.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 7,
@@ -85,7 +85,7 @@ export const tracks = [
     year: 1991,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/5d/53/60/5d536004-6054-2b42-9366-687a87d1e697/mzaf_17256071545271874072.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9e/80/1b/9e801b06-67fa-0990-2d15-85480ad3cd46/850007452025.png/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 8,
@@ -97,7 +97,7 @@ export const tracks = [
     year: 1991,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/dd/65/85dd659d-d88d-303f-f854-b2cc7dd85d4c/mzaf_1627641021050197115.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e0/e1/7c/e0e17cf0-62e5-6312-f3df-2462960cc8f1/884977724745.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 9,
@@ -109,7 +109,7 @@ export const tracks = [
     year: 2001,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f4/a1/c2/f4a1c207-6d73-e3bd-8fcb-bd6c5037021a/mzaf_16212608709217830172.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/82/51/52/825152b4-9423-b23b-c036-cc67ead732d4/888888046775.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 10,
@@ -157,7 +157,7 @@ export const tracks = [
     year: 1994,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fd/64/f9/fd64f9bd-52fc-e383-1c26-a51901ad92d2/mzaf_10117153100071431768.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/bd/d6/37/bdd6373e-dc26-e86e-1d31-9bb1f7656968/5099747485527.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 14,
@@ -169,7 +169,7 @@ export const tracks = [
     year: 1964,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/21/db/3a/21db3abe-0bab-e5c1-363f-535a051ca1a9/mzaf_17218579586126986902.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/5c/9f/2a/5c9f2a18-254d-cea7-f58c-c6db37947e64/4894894734105.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 15,
@@ -181,7 +181,7 @@ export const tracks = [
     year: 1991,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/85/a5/65/85a565a5-c992-0a77-a1be-c4b190c7f395/mzaf_12174803259665081383.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2e/94/95/2e9495d7-dfe3-ddc8-87ef-6ef797a60218/850007452056.png/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 16,
@@ -193,7 +193,7 @@ export const tracks = [
     year: 1980,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c9/92/05/c992051c-dc1e-eed5-b153-3bd6d9c5d581/mzaf_12000067792525113010.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/4a/f9/88/4af988c8-5a08-72e1-a97f-7b8d2010cc40/5414939548673.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 17,
@@ -205,7 +205,7 @@ export const tracks = [
     year: 1994,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/fc/ad/66fcad40-fe87-13db-48d8-d5ad960b75c4/mzaf_14260138254714138009.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ae/b6/d6/aeb6d672-2004-41eb-ccba-e2964643a2bc/06UMGIM18607.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 18,
@@ -241,7 +241,7 @@ export const tracks = [
     year: 1984,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cc/2f/d0/cc2fd073-8d0c-4a7d-630c-64639fbb56e1/mzaf_15726260092255257970.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/79/98/f7/7998f761-20e0-aa8e-4fb2-190062af1638/603497894161.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 21,
@@ -253,7 +253,7 @@ export const tracks = [
     year: 1990,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/da/20/e8/da20e84f-b75c-d364-5e39-61a3d78ca449/mzaf_1667388256841665935.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/13/51/37/13513726-9197-8dea-bf06-b134044f8d34/06UMGIM00648.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 22,
@@ -265,7 +265,7 @@ export const tracks = [
     year: 1977,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/9e/a5/88/9ea588ce-f48a-1d29-e315-a8cc6d9d7621/mzaf_18115652345666258441.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e6/8b/8e/e68b8eb1-ddce-3332-4e66-5a15ccc04d6f/00600753407301.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 23,
@@ -277,7 +277,7 @@ export const tracks = [
     year: 1992,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/52/f5/e6/52f5e648-d504-d6d8-a3f4-a2f40db68326/mzaf_8855636367189570390.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3b/7b/17/3b7b1762-04bc-a9e9-4f5c-93946b13b727/886448670452.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 24,
@@ -289,7 +289,7 @@ export const tracks = [
     year: 1977,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/f2/b4/10/f2b4108a-8a40-2fd6-aad8-14de7c5c847f/mzaf_9569496917321745947.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music/4c/16/50/mzi.cipyvpqz.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 25,
@@ -301,7 +301,7 @@ export const tracks = [
     year: 1984,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f6/3c/d0/f63cd033-acff-b3d3-972d-ca39bd39223c/mzaf_12825426595797481051.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/0f/7a/74/0f7a7472-92fa-e77d-384a-1e4304705e83/dj.jbiruenb.png/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 26,
@@ -325,7 +325,7 @@ export const tracks = [
     year: 1993,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/8d/e0/bb/8de0bb10-0593-83cc-4d2c-4e9f6ea9b575/mzaf_16440589638018943894.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/28/7a/7c/287a7ca9-ed95-1a21-e3bb-4559a1a0ac0e/191404134351.png/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 28,
@@ -337,7 +337,7 @@ export const tracks = [
     year: 1977,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e9/37/42/e9374231-9cef-ad56-365c-a7ba09e4fa55/mzaf_10566507321838390251.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4d/08/2a/4d082a9e-7898-1aa1-a02f-339810058d9e/14DMGIM05632.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 29,
@@ -349,7 +349,7 @@ export const tracks = [
     year: 1991,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/3c/eb/6b/3ceb6b17-b62b-9cb9-ee69-6c161aea7506/mzaf_11294109330794350435.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/6a/e2/1f/6ae21fa9-c897-3be1-2967-50eefae22b93/06UMGIM05041.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 30,
@@ -373,7 +373,7 @@ export const tracks = [
     year: 2012,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/c4/79/e6/c479e6ec-7dce-f681-35dd-7298e91a0589/mzaf_5120421864619897431.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a6/48/d5/a648d509-b857-be6d-28ba-9c26be538718/mzi.tsarxpkw.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 32,
@@ -385,7 +385,7 @@ export const tracks = [
     year: 2012,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/08/c5/96/08c596c9-5af0-bd63-1b8f-dae5922db8e8/mzaf_13203996473829463360.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a6/48/d5/a648d509-b857-be6d-28ba-9c26be538718/mzi.tsarxpkw.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 33,
@@ -397,7 +397,7 @@ export const tracks = [
     year: 2012,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b3/3c/8a/b33c8a17-c116-bb2a-494c-1f18bb46a342/mzaf_1414979686977876226.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a6/48/d5/a648d509-b857-be6d-28ba-9c26be538718/mzi.tsarxpkw.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 34,
@@ -409,7 +409,7 @@ export const tracks = [
     year: 2022,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/87/ee/00/87ee007f-0dab-3ef2-4e80-12a02ca01001/mzaf_8134529517863885859.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/05/d8/bb/05d8bb61-70aa-f6ee-9cf4-33f18bc28004/artwork.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 35,
@@ -421,7 +421,7 @@ export const tracks = [
     year: 2022,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/84/06/7d/84067da6-d283-2d36-9ee6-04f4d7e99a7a/mzaf_4063545204576050006.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/fd/0d/c5/fd0dc5be-f750-69be-c3c4-f88f1515267e/artwork.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 36,
@@ -433,7 +433,7 @@ export const tracks = [
     year: 2022,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4e/60/64/4e6064c8-64df-0401-9807-8368d22a3794/mzaf_1441571856892491215.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/05/d8/bb/05d8bb61-70aa-f6ee-9cf4-33f18bc28004/artwork.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 37,
@@ -445,7 +445,7 @@ export const tracks = [
     year: 2024,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f5/8a/37/f58a377f-198e-b90f-9c1f-36e0c0a3a3ea/mzaf_916719456756055001.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9f/12/5f/9f125feb-3706-e56d-a579-e801e256f0fa/artwork.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 38,
@@ -457,7 +457,7 @@ export const tracks = [
     year: 2003,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/9d/f4/f3/9df4f389-c587-d48d-c1cd-3481b3ce5d62/mzaf_1376973737016241306.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/3e/bf/fd/3ebffd50-2061-862e-7160-cbba45f99e74/828768291122.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 39,
@@ -469,7 +469,7 @@ export const tracks = [
     year: 2003,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/eb/70/3b/eb703bd2-9909-b2fe-a840-f4dd35894d58/mzaf_17501942566373775377.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/3e/bf/fd/3ebffd50-2061-862e-7160-cbba45f99e74/828768291122.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 40,
@@ -481,7 +481,7 @@ export const tracks = [
     year: 2008,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/06/8b/08/068b082f-b7ed-eb04-3b07-b21e36045d76/mzaf_7117404851240475133.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/93/e7/d8/93e7d853-9b3d-50b7-d7bf-0dc69c49756f/mzi.kydwxclx.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 41,
@@ -493,7 +493,7 @@ export const tracks = [
     year: 2015,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ca/df/27/cadf276c-28da-e766-3dd3-fecb6b695675/mzaf_9768139382688748323.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5b/9c/ab/5b9cabd5-0d61-5ea4-e0eb-6c6e761add21/191018549558.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 42,
@@ -505,7 +505,7 @@ export const tracks = [
     year: 1984,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/09/b1/2a/09b12af0-49d2-d235-0a23-059331e9a2aa/mzaf_10879628255968215596.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/19/6a/ff/196aff71-fbb8-22f3-ac2c-c12eaf9fb3b1/00602567826019.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 43,
@@ -517,7 +517,7 @@ export const tracks = [
     year: 2021,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6f/a1/43/6fa14367-daf6-b808-8c94-5a946617f242/mzaf_985512090828947252.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/20/63/8a/20638a69-2289-4505-8f45-4e622c62277b/199806096826.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 44,
@@ -529,7 +529,7 @@ export const tracks = [
     year: 1979,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fe/44/11/fe441140-ff52-28ef-d7c4-d87b3084d959/mzaf_9494577035851753023.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/3e/17/ec/3e17ec6d-f980-c64f-19e0-a6fd8bbf0c10/886445635850.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 45,
@@ -541,7 +541,7 @@ export const tracks = [
     year: 1971,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/42/bf/eb/42bfeb4a-6058-4b75-b0af-faf03862e640/mzaf_8082963715287663979.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/03/c6/2d/03c62d8a-487f-78c3-8416-488cfac664eb/dj.sboowgda.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 46,
@@ -553,7 +553,7 @@ export const tracks = [
     year: 1994,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/8a/36/e3/8a36e3f9-0b25-b76f-6f6e-8b46fff06b51/mzaf_6136342401198040180.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/55/e0/85/55e0851e-11df-3b6a-7c54-4eef0efc2bed/15UMGIM67680.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 47,
@@ -565,7 +565,7 @@ export const tracks = [
     year: 1995,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d6/80/df/d680dfac-7aec-6736-aba9-8592efd92cb1/mzaf_1021967676870236577.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ca/ce/b2/caceb2ed-50f0-c666-e4d0-165a0a1541fc/13UABIM04008.rgb.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 48,
@@ -577,7 +577,7 @@ export const tracks = [
     year: 1994,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c2/c9/0f/c2c90fef-f994-111d-2afc-17747de6bc03/mzaf_8917420879191568081.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/88/83/e7/8883e74b-1b7c-0725-09de-21e4e00d54b5/093624915713.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
   {
     id: 49,
@@ -601,6 +601,6 @@ export const tracks = [
     year: 1975,
     audioPreviewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a8/b7/0a/a8b70ad0-b907-0360-99b1-5bf23bdc8322/mzaf_11319548672709322634.plus.aac.p.m4a",
     coverUrl: "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/a6/a6/53/a6a65331-d20b-53b5-766a-0c79c78f1e73/886445412307.jpg/600x600bb.jpg",
-    tiebreaker: true,
+    tiebreaker: false,
   },
 ];
