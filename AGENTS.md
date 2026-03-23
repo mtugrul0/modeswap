@@ -1,7 +1,7 @@
 # AGENTS.md — ModeSwap Project Guide
 
 ## Project Overview
-ModeSwap is a swipe-based music discovery app for iconic Rock and Metal tracks.
+ModeSwap is a swipe-based music discovery app for iconic Rock and Metal tracks across 8 extended moods.
 Built with Vite + React. Mobile-first. Dark mode. Production-ready MVP.
 
 ## Architecture Rules

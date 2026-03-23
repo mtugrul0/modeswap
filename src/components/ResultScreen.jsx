@@ -54,6 +54,12 @@ function ResultScreen({ vibeScores, onRestart }) {
     party:      '⚡',
     chill:      '🌊',
     melancholic:'🌙',
+    sad:        '💙',
+    energetic:  '⚡',
+    dark:       '🌑',
+    euphoric:   '✨',
+    romantic:   '🌹',
+    rebellious: '✊',
   }[resolvedVibe] || '🎵'
 
   const scoreValues = Object.values(vibeScores);
@@ -121,6 +127,12 @@ const vibeDescriptions = {
   party:      'You live for the peak moment. First on the floor, last to leave. Pure electricity.',
   chill:      'You move at your own pace. Cool under pressure. The realest in the room.',
   melancholic:'You feel deeply, create deeply. Beauty lives in the shadows you see.',
+  sad:        'You carry depth with grace. The songs that break you are the ones that heal you.',
+  energetic:  'You run on full throttle. Maximum volume, maximum output, no brakes.',
+  dark:       'You see what others miss. Beauty lives in the shadows, and you know every corner.',
+  euphoric:   'You chase the peak moment. Everything hits different when you feel this alive.',
+  romantic:   'You love deeply and without apology. Every song is a feeling you\'ve lived.',
+  rebellious: 'You don\'t follow rules — you rewrite them. Loud, proud, unapologetic.',
 }
 
 export default ResultScreen
