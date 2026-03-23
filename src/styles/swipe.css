@@ -154,6 +154,18 @@
   border-color: var(--color-accent);
 }
 
+.audio-btn--playing {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
+.audio-btn-icon {
+  font-size: var(--text-xs);
+  min-width: 12px;
+  text-align: center;
+}
+
 /* --- Like / Pass Overlays --- */
 .card-overlay {
   position: absolute;
@@ -241,6 +253,55 @@
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   letter-spacing: 0.1em;
+}
+
+.swipe-hint-overlay {
+  position: absolute;
+  bottom: var(--space-12);
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  pointer-events: none;
+  animation: hint-appear 0.5s 0.8s both, hint-fade 0.4s 2.6s forwards;
+  z-index: 20;
+}
+
+.swipe-hint-arrow {
+  font-size: var(--text-2xl);
+  color: rgba(255,255,255,0.5);
+}
+
+.swipe-hint-arrow--left  { animation: nudge-left  1.2s 1s ease-in-out infinite; }
+.swipe-hint-arrow--right { animation: nudge-right 1.2s 1s ease-in-out infinite; }
+
+.swipe-hint-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+@keyframes hint-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes hint-fade {
+  to { opacity: 0; }
+}
+
+@keyframes nudge-left {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(-6px); }
+}
+
+@keyframes nudge-right {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(6px); }
 }
 
 /* --- Responsive --- */

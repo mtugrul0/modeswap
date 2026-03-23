@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="screen-wrapper" key={screen}>
       {screen === 'start' && (
         <StartScreen onStart={handleStart} />
       )}
@@ -33,7 +33,7 @@ function App() {
       {screen === 'result' && (
         <ResultScreen vibeScores={vibeScores} onRestart={handleRestart} />
       )}
-    </>
+    </div>
   )
 }
 

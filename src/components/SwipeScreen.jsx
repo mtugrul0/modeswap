@@ -19,6 +19,8 @@ function SwipeScreen({ onComplete }) {
   const [swipeCount,    setSwipeCount]     = useState(0)
   const [exitDirection, setExitDirection]  = useState(null) // 'left' | 'right' | null
   const [isAnimating,   setIsAnimating]    = useState(false)
+  const [isPlaying,     setIsPlaying]      = useState(false)
+  const [showHint,      setShowHint]       = useState(true)
   const audioRef = useRef(null)
 
   const currentTrack = tracks[currentIndex]
@@ -28,8 +30,14 @@ function SwipeScreen({ onComplete }) {
     if (audioRef.current) {
       audioRef.current.pause()
       audioRef.current.currentTime = 0
+      setIsPlaying(false)
     }
   }, [currentIndex])
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowHint(false), 3000)
+    return () => clearTimeout(t)
+  }, [])
 
   const triggerSwipe = (direction) => {
     if (isAnimating) return
@@ -125,6 +133,14 @@ function SwipeScreen({ onComplete }) {
             <span>PASS</span>
           </div>
 
+          {showHint && swipeCount === 0 && (
+            <div className="swipe-hint-overlay" aria-hidden="true">
+              <span className="swipe-hint-arrow swipe-hint-arrow--left">←</span>
+              <span className="swipe-hint-text">swipe</span>
+              <span className="swipe-hint-arrow swipe-hint-arrow--right">→</span>
+            </div>
+          )}
+
           {/* Cover image */}
           <img
             src={currentTrack.coverUrl}
@@ -142,26 +158,30 @@ function SwipeScreen({ onComplete }) {
             <p className="card-artist">{currentTrack.artist}</p>
             <p className="card-album">{currentTrack.album} · {currentTrack.year}</p>
 
-            {/* Audio preview */}
+            {/* Audio preview with play state tracking */}
             <div className="card-audio">
               <audio
                 ref={audioRef}
                 src={currentTrack.audioPreviewUrl}
                 preload="none"
+                onEnded={() => setIsPlaying(false)}
               />
               <button
-                className="audio-btn"
+                className={`audio-btn ${isPlaying ? 'audio-btn--playing' : ''}`}
                 onClick={(e) => {
                   e.stopPropagation()
                   if (audioRef.current.paused) {
                     audioRef.current.play()
+                    setIsPlaying(true)
                   } else {
                     audioRef.current.pause()
+                    setIsPlaying(false)
                   }
                 }}
-                aria-label="Toggle audio preview"
+                aria-label={isPlaying ? 'Pause preview' : 'Play preview'}
               >
-                ▶ Preview
+                <span className="audio-btn-icon">{isPlaying ? '❚❚' : '▶'}</span>
+                <span>{isPlaying ? 'Playing...' : 'Preview'}</span>
               </button>
             </div>
           </div>

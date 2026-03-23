@@ -42,15 +42,15 @@
 - [x] Restart button wired up
 
 ## Phase 6: Audio Integration
-- [ ] Audio preview (30s) integrated into SwipeScreen card
-- [ ] Play/pause button on card
-- [ ] Auto-pause on swipe
+- [x] Audio preview (30s) integrated into SwipeScreen card
+- [x] Play/pause button on card
+- [x] Auto-pause on swipe
 
 ## Phase 7: Polish & Animations
-- [ ] Page transition animations between screens
-- [ ] Swipe hint animation on first card
-- [ ] Result screen entrance animation
-- [ ] All micro-interactions refined
+- [x] Page transition animations between screens
+- [x] Swipe hint animation on first card
+- [x] Result screen entrance animation
+- [x] All micro-interactions refined
 
 ## Phase 8: Docker & Deployment Prep
 - [ ] Dockerfile verified
