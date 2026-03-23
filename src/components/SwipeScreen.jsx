@@ -31,6 +31,13 @@ function SwipeScreen({ onComplete }) {
       audioRef.current.pause()
       audioRef.current.currentTime = 0
       setIsPlaying(false)
+      // Attempt to autoplay the new card's audio
+      // This may succeed because the swipe itself was a user gesture
+      audioRef.current.play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {
+          // Blocked — user will use the preview button
+        })
     }
   }, [currentIndex])
 
@@ -122,6 +129,16 @@ function SwipeScreen({ onComplete }) {
           className={`music-card music-card--active ${exitDirection ? `exit-${exitDirection}` : ''}`}
           style={cardStyle}
           {...dragHandlers}
+          onClick={() => {
+            // Attempt autoplay on first tap (user gesture unlocks audio policy)
+            if (audioRef.current && audioRef.current.paused && !isDragging) {
+              audioRef.current.play()
+                .then(() => setIsPlaying(true))
+                .catch(() => {
+                  // Autoplay still blocked — user must press the preview button manually
+                })
+            }
+          }}
           role="article"
           aria-label={`${currentTrack.title} by ${currentTrack.artist}`}
         >
